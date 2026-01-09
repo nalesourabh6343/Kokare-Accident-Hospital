@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BoneCare Hospital - Advanced Orthopedic Care</title>
+    <title>Kokre Hospital - Advanced Orthopedic Care</title>
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -31,11 +31,15 @@
             --text-muted: #64748b;
         }
 
+        html,
         body {
             font-family: 'Poppins', sans-serif;
             color: var(--text-dark);
-            overflow-x: hidden;
-            /* Prevent horizontal scroll from animations */
+            overflow-x: hidden !important;
+            width: 100%;
+            position: relative;
+            margin: 0;
+            padding: 0;
         }
 
         /* Scroll Progress Bar */
@@ -56,11 +60,7 @@
             transition: width 0.1s;
         }
 
-        /* Navbar adjustment for progress bar */
-        .navbar {
-            top: 4px;
-            /* Below progress bar */
-        }
+
 
         h1,
         h2,
@@ -86,16 +86,42 @@
             color: var(--aqua) !important;
         }
 
+        /* Info Bar */
+        .info-bar {
+            background: var(--teal);
+            color: white;
+            padding: 8px 0;
+            font-size: 0.85rem;
+            position: relative;
+            z-index: 2001;
+        }
+
+        .info-bar a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .info-bar a:hover {
+            opacity: 0.8;
+        }
+
         /* Navbar */
         .navbar {
             transition: all 0.3s ease;
-            padding: 1rem 0;
+            padding: 1.25rem 0;
+            top: 40px !important;
+            /* Start below info bar */
+            z-index: 2000;
+            background: #fff !important;
         }
 
         .navbar.scrolled {
             background: rgba(255, 255, 255, 0.98) !important;
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            padding: 0.5rem 0;
+            padding: 0.75rem 0;
+            top: 0 !important;
+            /* Fix to top when scrolled */
         }
 
         .navbar-brand {
@@ -134,7 +160,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(15, 118, 110, 0.9) 0%, rgba(6, 182, 212, 0.8) 100%);
+            background: rgba(0, 0, 0, 0.45);
             z-index: 1;
         }
 
@@ -582,8 +608,10 @@
             }
         }
 
-        /* Mobile Adjustments */
-        @media (max-width: 576px) {
+        /* Universal Mobile & Tablet Adjustments (Standard Bootstrap Breakpoint) */
+        @media (max-width: 991.98px) {
+
+            /* Text Scaling */
             .section-title {
                 font-size: 28px;
             }
@@ -593,22 +621,182 @@
                 font-size: 2.5rem;
             }
 
+            /* Navbar & Header Fixes */
+            .info-bar {
+                padding: 6px 0;
+            }
+
+            .info-bar .container {
+                display: flex;
+                justify-content: center !important;
+                padding: 0 10px;
+            }
+
+            .info-bar span,
+            .info-bar a {
+                font-size: 10px !important;
+                display: flex;
+                align-items: center;
+            }
+
+            .info-bar .gap-3 {
+                gap: 15px !important;
+            }
+
+            .navbar {
+                position: fixed !important;
+                top: 35px !important;
+                /* Adjust for smaller info bar */
+                left: 0 !important;
+                right: 0 !important;
+                width: 100% !important;
+                z-index: 9999 !important;
+                /* Over everything */
+                padding: 0.5rem 0;
+                background: #fff !important;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .navbar.scrolled {
+                top: 0 !important;
+            }
+
+            .navbar-toggler {
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid var(--teal) !important;
+                padding: 5px 8px;
+                background: white !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+            }
+
+            .navbar-toggler-icon {
+                width: 1.2em;
+                height: 1.2em;
+            }
+
+            .navbar-brand {
+                font-size: 1.2rem;
+                max-width: 70%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .navbar-toggler {
+                border: none;
+                padding: 0.25rem 0.5rem;
+                outline: none;
+                box-shadow: none !important;
+            }
+
+            /* Adjust FABs */
             .fab-container {
                 right: 15px;
                 bottom: 15px;
+                gap: 10px;
             }
 
             .fab-btn {
                 width: 45px;
                 height: 45px;
-                font-size: 20px;
+                font-size: 1.25rem;
             }
 
             .social-sidebar {
-                display: none;
+                display: none !important;
+            }
+        }
+
+        /* ======= NEW CONTACT SECTION STYLES ======= */
+        .contact-info-card {
+            padding: 30px;
+            border-radius: 20px;
+            background: #fff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: center;
+            border: 1px solid rgba(15, 118, 110, 0.05);
+            height: 100%;
+        }
+
+        .contact-info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(15, 118, 110, 0.12);
+            border-color: var(--teal-light);
+        }
+
+        .contact-info-card .icon-box {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal-light) 100%);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin: 0 auto 25px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-info-card:hover .icon-box {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .contact-info-card h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .contact-info-card p {
+            color: var(--text-muted);
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+        .contact-form-wrapper {
+            background: #fff;
+            padding: 45px;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(15, 118, 110, 0.05);
+        }
+
+        .form-floating>.form-control:focus~label,
+        .form-floating>.form-control:not(:placeholder-shown)~label {
+            color: var(--teal);
+        }
+
+        .contact-map-wrapper {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            height: 100%;
+            min-height: 450px;
+        }
+
+        .contact-map-wrapper iframe {
+            filter: grayscale(0.2) contrast(1.1);
+            transition: all 0.5s ease;
+        }
+
+        .contact-map-wrapper:hover iframe {
+            filter: grayscale(0);
+        }
+
+        @media (max-width: 767.98px) {
+            .contact-form-wrapper {
+                padding: 30px 20px;
             }
 
-            /* Hide sidebar on mobile to clear view */
+            .contact-map-wrapper {
+                min-height: 350px;
+            }
         }
     </style>
 </head>
@@ -620,11 +808,31 @@
         <div class="progress-bar" id="progressBar"></div>
     </div>
 
+    <!-- Info Bar -->
+    <div class="info-bar d-flex align-items-center">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center flex-nowrap">
+                <div class="d-flex align-items-center gap-3 gap-md-4">
+                    <a href="tel:18001234567" class="text-nowrap">
+                        <i class="bi bi-telephone-fill me-1"></i>1800-123-4567
+                    </a>
+                    <span class="vr d-none d-md-block bg-white-50"></span>
+                    <a href="mailto:care@kokrehospital.com" class="text-nowrap">
+                        <i class="bi bi-envelope-fill me-1"></i>care@kokrehospital.com
+                    </a>
+                </div>
+                <div class="d-none d-md-flex align-items-center gap-3">
+                    <span class="text-nowrap"><i class="bi bi-geo-alt-fill me-1"></i>Phaltan, Maharashtra</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top bg-white">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-white">
         <div class="container">
             <a class="navbar-brand text-teal" href="#">
-                <i class="bi bi-heart-pulse-fill me-2"></i>BoneCare
+                <i class="bi bi-heart-pulse-fill me-2"></i>Kokre Hospital
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -1034,10 +1242,10 @@
                         alt="Hospital" class="img-fluid rounded-4 shadow-lg">
                 </div>
                 <div class="col-lg-6 ps-lg-5" data-aos="fade-right">
-                    <p class="section-subtitle">About BoneCare Hospital</p>
+                    <p class="section-subtitle">About Kokre Hospital</p>
                     <h2 class="section-title">Your Trusted Partner in Orthopedic Excellence</h2>
                     <p class="text-muted mb-4">
-                        BoneCare Hospital has been a beacon of hope for patients with bone and joint problems for over
+                        Kokre Hospital has been a beacon of hope for patients with bone and joint problems for over
                         28 years.
                         Our state-of-the-art facility combines cutting-edge technology with compassionate care to
                         deliver
@@ -1610,7 +1818,7 @@
                         <i class="bi bi-envelope-fill fs-4 me-3"></i>
                         <div>
                             <small class="text-white-50">Email Us</small>
-                            <p class="mb-0 fw-semibold">care@bonecare.com</p>
+                            <p class="mb-0 fw-semibold">care@kokrehospital.com</p>
                         </div>
                     </div>
                 </div>
@@ -1802,7 +2010,8 @@
                             <i class="bi bi-star-fill"></i>
                         </div>
                         <p class="text-muted mb-4">
-                            "After my knee replacement surgery at BoneCare, I can walk without pain for the first time
+                            "After my knee replacement surgery at Kokre Hospital, I can walk without pain for the first
+                            time
                             in years.
                             The doctors and staff were incredibly supportive throughout my recovery."
                         </p>
@@ -1853,7 +2062,8 @@
                             <i class="bi bi-star-half"></i>
                         </div>
                         <p class="text-muted mb-4">
-                            "The spine surgery team at BoneCare gave me my life back. After years of chronic back pain,
+                            "The spine surgery team at Kokre Hospital gave me my life back. After years of chronic back
+                            pain,
                             I finally found the right treatment and care."
                         </p>
                         <div class="d-flex align-items-center">
@@ -1872,73 +2082,100 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section-padding">
+    <section id="contact" class="section-padding bg-light">
         <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <p class="section-subtitle">Get in Touch</p>
-                    <h2 class="section-title mb-4">Contact Us</h2>
+            <div class="text-center mb-5" data-aos="fade-up">
+                <p class="section-subtitle">Get in Touch</p>
+                <h2 class="section-title">Contact Us</h2>
+                <p class="text-muted mx-auto" style="max-width: 600px;">
+                    Have questions or need assistance? Reach out to us through any of the following channels or send us
+                    a message.
+                </p>
+            </div>
 
-                    <div class="d-flex mb-4">
-                        <div class="flex-shrink-0">
-                            <div class="bg-teal-light rounded-3 p-3 text-white">
-                                <i class="bi bi-geo-alt-fill fs-4"></i>
-                            </div>
+            <!-- Contact Info Cards -->
+            <div class="row g-4 mb-5">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contact-info-card">
+                        <div class="icon-box">
+                            <i class="bi bi-geo-alt-fill"></i>
                         </div>
-                        <div class="ms-4">
-                            <h6 class="fw-semibold">Hospital Address</h6>
-                            <p class="text-muted mb-0">123 Healthcare Avenue, Phaltan<br>Maharashtra - 415523</p>
-                        </div>
-                    </div>
-
-                    <div class="d-flex mb-4">
-                        <div class="flex-shrink-0">
-                            <div class="bg-teal-light rounded-3 p-3 text-white">
-                                <i class="bi bi-telephone-fill fs-4"></i>
-                            </div>
-                        </div>
-                        <div class="ms-4">
-                            <h6 class="fw-semibold">Phone Numbers</h6>
-                            <p class="text-muted mb-0">
-                                General: +91 1234 567890<br>
-                                Emergency: 1800-123-4567
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="d-flex mb-4">
-                        <div class="flex-shrink-0">
-                            <div class="bg-teal-light rounded-3 p-3 text-white">
-                                <i class="bi bi-envelope-fill fs-4"></i>
-                            </div>
-                        </div>
-                        <div class="ms-4">
-                            <h6 class="fw-semibold">Email Address</h6>
-                            <p class="text-muted mb-0">care@bonecare.com<br>info@bonecare.com</p>
-                        </div>
-                    </div>
-
-                    <div class="d-flex">
-                        <div class="flex-shrink-0">
-                            <div class="bg-teal-light rounded-3 p-3 text-white">
-                                <i class="bi bi-clock-fill fs-4"></i>
-                            </div>
-                        </div>
-                        <div class="ms-4">
-                            <h6 class="fw-semibold">Working Hours</h6>
-                            <p class="text-muted mb-0">
-                                Mon - Sat: 9:00 AM - 8:00 PM<br>
-                                Sun: 10:00 AM - 2:00 PM<br>
-                                Emergency: 24/7
-                            </p>
-                        </div>
+                        <h5>Our Location</h5>
+                        <p>123 Healthcare Avenue, Phaltan<br>Maharashtra - 415523</p>
                     </div>
                 </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-info-card">
+                        <div class="icon-box">
+                            <i class="bi bi-telephone-fill"></i>
+                        </div>
+                        <h5>Call Us</h5>
+                        <p>General: +91 1234 567890<br>Emergency: 1800-123-4567</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="contact-info-card">
+                        <div class="icon-box">
+                            <i class="bi bi-envelope-open-fill"></i>
+                        </div>
+                        <h5>Email Us</h5>
+                        <p>care@kokrehospital.com<br>info@kokrehospital.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-5">
+                <!-- Contact Form -->
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="contact-form-wrapper">
+                        <h4 class="fw-bold mb-4">Send us a Message</h4>
+                        <form id="contactForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="name" placeholder="Your Name"
+                                            required>
+                                        <label for="name">Your Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control" id="email" placeholder="Your Email"
+                                            required>
+                                        <label for="email">Your Email</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="subject" placeholder="Subject"
+                                            required>
+                                        <label for="subject">Subject</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control" placeholder="Leave a message here" id="message"
+                                            style="height: 150px" required></textarea>
+                                        <label for="message">Message</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-4">
+                                    <button class="btn btn-teal w-100 py-3" type="submit">
+                                        <i class="bi bi-send-fill me-2"></i>Send Message
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Google Map -->
                 <div class="col-lg-6" data-aos="fade-left">
-                    <div class="map-container">
+                    <div class="contact-map-wrapper">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60634.34358485292!2d74.40776854181057!3d17.99532822455956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc243b67cb7c3c5%3A0xe543e4881ae2f7af!2sPhaltan%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1735022830000!5m2!1sen!2sin"
-                            width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy">
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
                     </div>
                 </div>
@@ -1952,7 +2189,7 @@
             <div class="row g-4">
                 <div class="col-lg-4">
                     <h5 class="fw-bold mb-3">
-                        <i class="bi bi-heart-pulse-fill me-2 text-teal-light"></i>BoneCare Hospital
+                        <i class="bi bi-heart-pulse-fill me-2 text-teal-light"></i>Kokre Hospital
                     </h5>
                     <p class="text-white-50 small">
                         Leading orthopedic hospital providing comprehensive bone and joint care with
@@ -1989,7 +2226,7 @@
                         <i class="bi bi-telephone-fill me-2 text-teal-light"></i>1800-123-4567
                     </p>
                     <p class="text-white-50 small mb-2">
-                        <i class="bi bi-envelope-fill me-2 text-teal-light"></i>care@bonecare.com
+                        <i class="bi bi-envelope-fill me-2 text-teal-light"></i>care@kokrehospital.com
                     </p>
                     <p class="text-white-50 small">
                         <i class="bi bi-geo-alt-fill me-2 text-teal-light"></i>123 Healthcare Ave, Phaltan
@@ -2000,7 +2237,7 @@
             <div class="row align-items-center">
                 <div class="col-md-6 text-center text-md-start">
                     <p class="text-white-50 small mb-0">
-                        © 2025 BoneCare Hospital. All Rights Reserved.
+                        © 2025 Kokre Hospital. All Rights Reserved.
                     </p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
@@ -2040,8 +2277,7 @@
             once: true
         });
 
-        window.addEventListener('scroll', function () {
-            // Navbar Scroll Effect
+        function handleNavbar() {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
@@ -2049,6 +2285,22 @@
                 navbar.classList.remove('scrolled');
             }
 
+            // Back to Top Button Visibility
+            const backToTopBtn = document.querySelector('.js-back-to-top');
+            if (backToTopBtn) {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            }
+        }
+
+        window.addEventListener('scroll', handleNavbar);
+        window.addEventListener('DOMContentLoaded', handleNavbar);
+        window.addEventListener('load', handleNavbar);
+
+        window.addEventListener('scroll', function () {
             // Scroll Progress Bar Logic
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -2056,14 +2308,6 @@
             const progressBar = document.getElementById("progressBar");
             if (progressBar) {
                 progressBar.style.width = scrolled + "%";
-            }
-
-            // Back to Top Button Visibility
-            const backToTopBtn = document.querySelector('.js-back-to-top');
-            if (window.scrollY > 300) {
-                backToTopBtn.classList.add('visible');
-            } else {
-                backToTopBtn.classList.remove('visible');
             }
         });
 
@@ -2144,6 +2388,27 @@
             ride: 'carousel',
             pause: 'hover'
         });
+
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const name = document.getElementById('name').value;
+                // Simulate form submission
+                const btn = this.querySelector('button[type="submit"]');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Sending...';
+                btn.disabled = true;
+
+                setTimeout(() => {
+                    alert(`Thank you, ${name}! Your message has been sent successfully. We will get back to you soon.`);
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                    this.reset();
+                }, 1500);
+            });
+        }
     </script>
 </body>
 
