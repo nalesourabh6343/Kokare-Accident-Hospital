@@ -50,7 +50,7 @@
             position: fixed;
             top: 0;
             left: 0;
-            z-index: 2000;
+            z-index: 10001 !important;
         }
 
         .progress-bar {
@@ -1008,6 +1008,8 @@
                     Hospital
                 </span>
             </a>
+            <!-- <a class="navbar-brand text-teal" href="#"> <i class="bi bi-heart-pulse-fill me-2"></i>Kokare 
+                Hospital </a> -->
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -2858,9 +2860,9 @@
 
         window.addEventListener('scroll', function () {
             // Scroll Progress Bar Logic
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
+            const winScroll = window.pageYOffset || window.scrollY || document.documentElement.scrollTop || document.body.scrollTop;
+            const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / docHeight) * 100;
             const progressBar = document.getElementById("progressBar");
             if (progressBar) {
                 progressBar.style.width = scrolled + "%";
