@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kokre Hospital - Advanced Orthopedic Care</title>
+    <title>Kokare Accident Hospital</title>
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -798,6 +798,175 @@
                 min-height: 350px;
             }
         }
+
+        /* ======= NEW SECTIONS STYLES ======= */
+        /* Golden Hour Protocol */
+        .protocol-step {
+            padding: 30px;
+            border-radius: 20px;
+            background: #fff;
+            border-left: 5px solid var(--teal);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .protocol-step:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 35px rgba(220, 38, 38, 0.1);
+        }
+
+        .protocol-number {
+            width: 40px;
+            height: 40px;
+            background: var(--teal);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* OPD Schedule */
+        .opd-schedule-wrapper {
+            background: #fff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+            border: 1px solid rgba(15, 23, 42, 0.05);
+        }
+
+        .opd-table thead {
+            background: var(--teal);
+            color: #fff;
+        }
+
+        .opd-table th {
+            padding: 20px !important;
+            font-weight: 600;
+            border: none;
+        }
+
+        .opd-table td {
+            padding: 15px 20px !important;
+            vertical-align: middle;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        /* Technology Showcase */
+        .tech-card {
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            height: 300px;
+            margin-bottom: 30px;
+            cursor: pointer;
+        }
+
+        .tech-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .tech-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .tech-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, transparent 100%);
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        /* FAQ Section */
+        .faq-accordion .accordion-item {
+            border: none;
+            margin-bottom: 15px;
+            border-radius: 12px !important;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-accordion .accordion-button {
+            padding: 20px;
+            font-weight: 600;
+            color: var(--teal);
+            box-shadow: none;
+        }
+
+        .faq-accordion .accordion-button:not(.collapsed) {
+            background-color: var(--teal);
+            color: #fff;
+        }
+
+        .faq-accordion .accordion-button::after {
+            filter: grayscale(1) invert(0);
+        }
+
+        .faq-accordion .accordion-button:not(.collapsed)::after {
+            filter: grayscale(1) invert(1);
+        }
+
+        /* Testimonial Slider Tweaks */
+        #testimonialCarousel {
+            padding: 0 40px;
+        }
+
+        #testimonialCarousel .carousel-control-prev,
+        #testimonialCarousel .carousel-control-next {
+            width: 45px;
+            height: 45px;
+            background: var(--teal);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        #testimonialCarousel:hover .carousel-control-prev,
+        #testimonialCarousel:hover .carousel-control-next {
+            opacity: 0.9;
+        }
+
+        #testimonialCarousel .carousel-control-prev {
+            left: -10px;
+        }
+
+        #testimonialCarousel .carousel-control-next {
+            right: -10px;
+        }
+
+        #testimonialCarousel .carousel-indicators {
+            bottom: -50px;
+        }
+
+        #testimonialCarousel .carousel-indicators [data-bs-target] {
+            background-color: var(--teal);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        @media (max-width: 991.98px) {
+            #testimonialCarousel {
+                padding: 0;
+            }
+
+            #testimonialCarousel .carousel-control-prev,
+            #testimonialCarousel .carousel-control-next {
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -831,9 +1000,15 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-white">
         <div class="container">
-            <a class="navbar-brand text-teal" href="#">
-                <i class="bi bi-heart-pulse-fill me-2"></i>Kokre Hospital
+            <a class="navbar-brand text-teal text-center" href="#">
+                <span class="d-block">
+                    <i class="bi bi-heart-pulse-fill me-2"></i>Kokare Accident
+                </span>
+                <span class="d-block">
+                    Hospital
+                </span>
             </a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -950,6 +1125,8 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#contact"><i
                                         class="bi bi-geo-alt-fill me-2 text-teal"></i>Location (Google Maps)</a></li>
+                            <li><a class="dropdown-item" href="#faq"><i
+                                        class="bi bi-question-circle-fill me-2 text-teal"></i>FAQ</a></li>
                             <li><a class="dropdown-item" href="#appointment"><i
                                         class="bi bi-calendar-check me-2 text-teal"></i>Book an Appointment</a></li>
                         </ul>
@@ -1233,13 +1410,60 @@
         </div>
     </div>
 
+    <!-- Golden Hour Protocol Section -->
+    <section class="section-padding bg-white">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <p class="section-subtitle">Life Saving Tips</p>
+                <h2 class="section-title">The Golden Hour Protocol</h2>
+                <p class="text-muted mx-auto" style="max-width: 700px;">
+                    The first 60 minutes after an accident are critical. Following these steps can prevent further
+                    injury and save lives.
+                </p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="protocol-step">
+                        <div class="protocol-number">01</div>
+                        <h5 class="fw-bold mb-3">Dial for Help</h5>
+                        <p class="text-muted small">Immediately call our 24/7 Emergency Line at <b>1800-123-4567</b>.
+                            Give the exact location and nature of the accident.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="protocol-step">
+                        <div class="protocol-number">02</div>
+                        <h5 class="fw-bold mb-3">Immobilize</h5>
+                        <p class="text-muted small">Avoid moving the victim unless there is a fire or explosion risk. If
+                            a limb is fractured, use a splint or rolled newspapers to keep it still.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="protocol-step">
+                        <div class="protocol-number">03</div>
+                        <h5 class="fw-bold mb-3">Control Bleeding</h5>
+                        <p class="text-muted small">Apply firm, steady pressure to any bleeding wounds using a clean
+                            cloth or bandage. Keep the wound elevated if possible.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="protocol-step">
+                        <div class="protocol-number">04</div>
+                        <h5 class="fw-bold mb-3">Reassure</h5>
+                        <p class="text-muted small">Keep the victim calm and warm. Do not give them anything to eat or
+                            drink, as it might interfere with potential emergency surgery.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
     <section id="about" class="section-padding" style="background: var(--bg-light);">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-left">
-                    <img src="https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=800"
-                        alt="Hospital" class="img-fluid rounded-4 shadow-lg">
+                    <img src="image/Kokare.png" alt="Modern Hospital" class="img-fluid rounded-4 shadow-lg">
                 </div>
                 <div class="col-lg-6 ps-lg-5" data-aos="fade-right">
                     <p class="section-subtitle">About Kokre Hospital</p>
@@ -1286,8 +1510,8 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-5 mb-5 mb-lg-0 order-lg-2" data-aos="zoom-in">
-                    <img src="https://images.pexels.com/photos/5327585/pexels-photo-5327585.jpeg?auto=compress&cs=tinysrgb&w=800"
-                        alt="Dr. Yuvraj Kokare" class="img-fluid rounded-4 shadow-lg" style="max-width: 350px;">
+                    <img src="image/Dr.png" alt="Dr. Yuvraj Kokare" class="img-fluid rounded-4 shadow-lg"
+                        style="max-width: 350px; height: 400px; object-fit: cover;">
                 </div>
                 <div class="col-lg-7 pe-lg-5 order-lg-1" data-aos="fade-right">
                     <p class="section-subtitle">Orthopedic Surgeon</p>
@@ -1329,8 +1553,8 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-5 mb-5 mb-lg-0" data-aos="zoom-in">
-                    <img src="https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&cs=tinysrgb&w=800"
-                        alt="Dr. Dipali Kokare" class="img-fluid rounded-4 shadow-lg" style="max-width: 350px;">
+                    <img src="image/Drs.png" alt="Dr. Dipali Kokare" class="img-fluid rounded-4 shadow-lg"
+                        style="max-width: 350px; height: 400px; object-fit: cover;">
                 </div>
                 <div class="col-lg-7 ps-lg-5" data-aos="fade-left">
                     <p class="section-subtitle">Ayurvedic Specialist</p>
@@ -1364,6 +1588,125 @@
                         Consult Now <i class="bi bi-arrow-right ms-2"></i>
                     </a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OPD Schedule Section -->
+    <section id="opd-schedule" class="section-padding bg-white">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <p class="section-subtitle">Availability</p>
+                <h2 class="section-title">OPD & Consultant Schedule</h2>
+                <div class="divider mx-auto bg-teal" style="width: 60px; height: 3px;"></div>
+            </div>
+
+            <!-- Desktop Table View -->
+            <div class="opd-schedule-wrapper d-none d-lg-block mb-4" data-aos="fade-up">
+                <div class="table-responsive">
+                    <table class="table opd-table mb-0">
+                        <thead>
+                            <tr>
+                                <th>Doctor Name</th>
+                                <th>Specialty</th>
+                                <th>Days</th>
+                                <th>Morning Timing</th>
+                                <th>Evening Timing</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <h6 class="fw-bold mb-0">Dr. Yuvraj Kokare</h6>
+                                    <small class="text-muted">MBBS, D.Ortho</small>
+                                </td>
+                                <td>Orthopedic Surgeon</td>
+                                <td>Mon - Sat</td>
+                                <td>10:00 AM - 02:00 PM</td>
+                                <td>06:00 PM - 09:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h6 class="fw-bold mb-0">Dr. Dipali Kokare</h6>
+                                    <small class="text-muted">BAMS</small>
+                                </td>
+                                <td>Ayurvedic Specialist</td>
+                                <td>Mon - Sat</td>
+                                <td>11:00 AM - 01:00 PM</td>
+                                <td>05:00 PM - 07:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="bg-light">
+                                    <span class="text-danger fw-bold"><i class="bi bi-clock-fill me-2"></i>Emergency
+                                        Consultations</span>
+                                </td>
+                                <td class="bg-light">Sun & Holidays</td>
+                                <td colspan="2" class="bg-light text-center fw-bold text-danger">Available 24/7 on Call
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Mobile Card View -->
+            <div class="d-lg-none">
+                <!-- Dr. Yuvraj -->
+                <div class="card border-0 shadow-sm mb-3 rounded-4" data-aos="fade-up">
+                    <div class="card-body p-4 border-start border-teal border-5 rounded-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h5 class="fw-bold mb-0">Dr. Yuvraj Kokare</h5>
+                                <p class="text-teal small mb-0">Orthopedic Surgeon</p>
+                            </div>
+                            <span class="badge bg-teal-light text-white rounded-pill">Mon - Sat</span>
+                        </div>
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <small class="text-muted d-block">Morning</small>
+                                <span class="fw-semibold small"><i class="bi bi-sun me-1"></i>10AM - 2PM</span>
+                            </div>
+                            <div class="col-6 border-start">
+                                <small class="text-muted d-block">Evening</small>
+                                <span class="fw-semibold small"><i class="bi bi-moon-stars me-1"></i>6PM - 9PM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Dr. Dipali -->
+                <div class="card border-0 shadow-sm mb-3 rounded-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-body p-4 border-start border-teal border-5 rounded-4">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <h5 class="fw-bold mb-0">Dr. Dipali Kokare</h5>
+                                <p class="text-teal small mb-0">Ayurvedic Specialist</p>
+                            </div>
+                            <span class="badge bg-teal-light text-white rounded-pill">Mon - Sat</span>
+                        </div>
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <small class="text-muted d-block">Morning</small>
+                                <span class="fw-semibold small"><i class="bi bi-sun me-1"></i>11AM - 1PM</span>
+                            </div>
+                            <div class="col-6 border-start">
+                                <small class="text-muted d-block">Evening</small>
+                                <span class="fw-semibold small"><i class="bi bi-moon-stars me-1"></i>5PM - 7PM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Emergency -->
+                <div class="card border-0 bg-danger-subtle mb-3 rounded-4" data-aos="fade-up">
+                    <div class="card-body p-3 text-center">
+                        <p class="text-danger fw-bold mb-0"><i
+                                class="bi bi-exclamation-triangle-fill me-2"></i>Emergency
+                            Available 24/7 on Call</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <p class="small text-muted mb-0">* Please call ahead to confirm availability of consultants.</p>
             </div>
         </div>
     </section>
@@ -1583,6 +1926,56 @@
             </div>
         </div>
     </section>
+
+    <!-- Advanced Tech Section -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <p class="section-subtitle">Precision Medicine</p>
+                <h2 class="section-title">Advanced Surgical Technology</h2>
+                <p class="text-muted mx-auto" style="max-width: 600px;">
+                    We leverage state-of-the-art diagnostic and surgical equipment to provide safer and more accurate
+                    treatments.
+                </p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="tech-card">
+                        <img src="https://images.pexels.com/photos/7089020/pexels-photo-7089020.jpeg?auto=compress&cs=tinysrgb&w=600"
+                            alt="C-Arm Image Intensifier">
+                        <div class="tech-overlay">
+                            <h5 class="fw-bold mb-2">C-Arm Image Intensifier</h5>
+                            <p class="small opacity-75 mb-0">High-resolution real-time X-ray imaging for precise implant
+                                placement during surgery.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="tech-card">
+                        <img src="https://images.pexels.com/photos/3845129/pexels-photo-3845129.jpeg?auto=compress&cs=tinysrgb&w=600"
+                            alt="Advanced Orthopedic Table">
+                        <div class="tech-overlay">
+                            <h5 class="fw-bold mb-2">Modern Trauma Table</h5>
+                            <p class="small opacity-75 mb-0">Specialized radiolucent tables designed for complex
+                                fracture reductions and spine access.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="tech-card">
+                        <img src="https://images.pexels.com/photos/3845625/pexels-photo-3845625.jpeg?auto=compress&cs=tinysrgb&w=600"
+                            alt="Digital Radiography">
+                        <div class="tech-overlay">
+                            <h5 class="fw-bold mb-2">Digital DR System</h5>
+                            <p class="small opacity-75 mb-0">Ultra-fast X-ray acquisition with significantly lower
+                                radiation dose for patient safety.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Doctors Section -->
     <section id="doctors" class="section-padding" style="background: var(--bg-light);">
         <div class="container">
@@ -1869,59 +2262,107 @@
     </section>
 
     <!-- Insurance & Government Schemes Section -->
-    <section id="insurance" class="section-padding">
+    <section id="insurance" class="section-padding bg-white">
         <div class="container">
             <div class="text-center mb-5">
-                <p class="section-subtitle">Patient Corner</p>
-                <h2 class="section-title">Insurance & Health Schemes</h2>
-                <p class="text-muted mx-auto" style="max-width: 600px;">
-                    We accept cashless treatment under major insurance providers and government health schemes.
-                </p>
+                <span class="text-uppercase text-teal fw-bold letter-spacing-2 small">Patient Support</span>
+                <h2 class="display-5 fw-bold mt-2">Insurance & Cashless Facilities</h2>
+                <div class="divider mx-auto mt-3 bg-teal" style="width: 60px; height: 3px;"></div>
             </div>
-            <div class="row g-4">
-                <!-- Cashless Insurance -->
-                <div class="col-md-6">
-                    <div class="card border-0 shadow-sm h-100 p-4">
-                        <div class="d-flex align-items-start">
-                            <div class="bg-teal rounded-3 p-3 text-white me-4">
-                                <i class="bi bi-credit-card-2-front fs-3"></i>
+
+            <div class="row g-4 justify-content-center">
+                <!-- Cashless Insurance Card -->
+                <div class="col-lg-6">
+                    <div
+                        class="card border-0 shadow-lg h-100 p-5 rounded-4 position-relative overflow-hidden group-hover-lift">
+                        <div class="position-absolute top-0 end-0 p-3 opacity-10">
+                            <i class="bi bi-wallet2 display-1 text-muted"></i>
+                        </div>
+                        <div
+                            class="d-flex flex-column flex-sm-row align-items-center text-center text-sm-start position-relative z-index-1">
+
+
+                            <div
+                                class="icon-circle bg-danger-subtle text-danger mb-4 mb-sm-0 me-sm-4 p-4 rounded-circle shadow-sm">
+                                <i class="bi bi-credit-card-2-front fs-1"></i>
                             </div>
+
                             <div>
-                                <h5 class="fw-bold mb-2">Cashless Insurance / TPA</h5>
-                                <p class="text-muted small mb-3">We are empaneled with major insurance companies for
-                                    hassle-free cashless treatment.</p>
-                                <div class="d-flex flex-wrap gap-2">
-                                    <span class="badge bg-light text-dark">Star Health</span>
-                                    <span class="badge bg-light text-dark">ICICI Lombard</span>
-                                    <span class="badge bg-light text-dark">HDFC Ergo</span>
-                                    <span class="badge bg-light text-dark">Bajaj Allianz</span>
-                                    <span class="badge bg-light text-dark">New India</span>
-                                    <span class="badge bg-light text-dark">+ More</span>
+                                <h4 class="fw-bold mb-3">Cashless Insurance (TPA)</h4>
+                                <p class="text-muted mb-4">
+                                    We have tie-ups with all major health insurance providers for seamless cashless
+                                    hospitalization.
+                                </p>
+                                <div class="d-flex flex-wrap justify-content-center justify-content-sm-start gap-2">
+                                    <span
+                                        class="badge bg-white border border-light text-secondary shadow-sm py-2 px-3 rounded-pill">Star
+                                        Health</span>
+                                    <span
+                                        class="badge bg-white border border-light text-secondary shadow-sm py-2 px-3 rounded-pill">ICICI
+                                        Lombard</span>
+                                    <span
+                                        class="badge bg-white border border-light text-secondary shadow-sm py-2 px-3 rounded-pill">HDFC
+                                        Ergo</span>
+                                    <span
+                                        class="badge bg-white border border-light text-secondary shadow-sm py-2 px-3 rounded-pill">Bajaj
+                                        Allianz</span>
+                                    <span
+                                        class="badge bg-white border border-light text-secondary shadow-sm py-2 px-3 rounded-pill">+25
+                                        More</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Government Schemes -->
-                <div class="col-md-6">
-                    <div class="card border-0 shadow-sm h-100 p-4">
-                        <div class="d-flex align-items-start">
-                            <div class="bg-teal rounded-3 p-3 text-white me-4">
-                                <i class="bi bi-building-check fs-3"></i>
+
+                <!-- Government Schemes Card -->
+                <div class="col-lg-6">
+                    <div
+                        class="card border-0 shadow-lg h-100 p-5 rounded-4 position-relative overflow-hidden group-hover-lift">
+                        <div class="position-absolute top-0 end-0 p-3 opacity-10">
+                            <i class="bi bi-building display-1 text-muted"></i>
+                        </div>
+                        <div
+                            class="d-flex flex-column flex-sm-row align-items-center text-center text-sm-start position-relative z-index-1">
+                            <div
+                                class="icon-circle bg-danger-subtle text-danger mb-4 mb-sm-0 me-sm-4 p-4 rounded-circle shadow-sm">
+                                <i class="bi bi-heart-pulse fs-1"></i>
                             </div>
                             <div>
-                                <h5 class="fw-bold mb-2">Government Health Schemes</h5>
-                                <p class="text-muted small mb-3">Avail benefits under various central and state
-                                    government health programs.</p>
-                                <div class="d-flex flex-wrap gap-2">
-                                    <span class="badge bg-teal">Ayushman Bharat</span>
-                                    <span class="badge bg-teal">MJPJAY</span>
-                                    <span class="badge bg-teal">CGHS</span>
-                                    <span class="badge bg-teal">ECHS</span>
-                                    <span class="badge bg-teal">Railway</span>
+                                <h4 class="fw-bold mb-3">Government Health Schemes</h4>
+                                <p class="text-muted mb-4">
+                                    Authorized hospital for various central and state government healthcare programs for
+                                    eligible beneficiaries.
+                                </p>
+                                <div class="d-flex flex-wrap justify-content-center justify-content-sm-start gap-2">
+                                    <span
+                                        class="badge bg-white border border-light text-secondary shadow-sm py-2 px-3 rounded-pill">Ayushman
+                                        Bharat</span>
+                                    <span
+                                        class="badge bg-white border border-light text-secondary shadow-sm py-2 px-3 rounded-pill">MJPJAY</span>
+                                    <span
+                                        class="badge bg-white border border-light text-secondary shadow-sm py-2 px-3 rounded-pill">CGHS
+                                        / ECHS</span>
+                                    <span
+                                        class="badge bg-white border border-light text-secondary shadow-sm py-2 px-3 rounded-pill">Police
+                                        Health</span>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Documents Info -->
+            <div class="row mt-5 justify-content-center">
+                <div class="col-lg-10">
+                    <div class="bg-light p-4 rounded-4 border border-white shadow-sm text-center">
+                        <h6 class="fw-bold text-dark mb-2"><i class="bi bi-info-circle-fill text-teal me-2"></i>Note for
+                            Patients</h6>
+                        <p class="mb-0 text-muted small">
+                            Please carry your valid ID proof (Aadhar Card), Insurance Card / Policy Document, and Past
+                            Medical Records for hassle-free admission.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -1998,81 +2439,193 @@
                 <p class="section-subtitle">Patient Stories</p>
                 <h2 class="section-title">What Our Patients Say</h2>
             </div>
-            <div class="row g-4">
-                <!-- Testimonial 1 -->
-                <div class="col-md-6 col-lg-4" data-aos="fade-up">
-                    <div class="testimonial-card h-100">
-                        <div class="stars mb-3">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
+            <div id="testimonialCarousel" class="carousel slide testimonial-carousel" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <!-- Slide 1 -->
+                    <div class="carousel-item active">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="testimonial-card text-center">
+                                    <div class="stars mb-3">
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                    </div>
+                                    <p class="text-muted mb-4 fs-5 italic">
+                                        "After my knee replacement surgery at Kokre Hospital, I can walk without pain
+                                        for the first time in years. The doctors and staff were incredibly supportive
+                                        throughout my recovery."
+                                    </p>
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <img src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=100"
+                                            alt="Patient" class="rounded-circle me-3" width="60" height="60"
+                                            style="object-fit: cover; border: 3px solid var(--teal-light);">
+                                        <div class="text-start">
+                                            <h6 class="mb-0 fw-bold">Meera Krishnan</h6>
+                                            <small class="text-teal">Knee Replacement Patient</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <p class="text-muted mb-4">
-                            "After my knee replacement surgery at Kokre Hospital, I can walk without pain for the first
-                            time
-                            in years.
-                            The doctors and staff were incredibly supportive throughout my recovery."
-                        </p>
-                        <div class="d-flex align-items-center">
-                            <img src="https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=100"
-                                alt="Patient" class="rounded-circle me-3" width="50" height="50"
-                                style="object-fit: cover;">
-                            <div>
-                                <h6 class="mb-0 fw-semibold">Meera Krishnan</h6>
-                                <small class="text-muted">Knee Replacement</small>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="testimonial-card text-center">
+                                    <div class="stars mb-3">
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                    </div>
+                                    <p class="text-muted mb-4 fs-5">
+                                        "Dr. Kokare's expertise in sports medicine helped me recover from a serious ACL
+                                        injury. I'm back on the field and performing better than ever! Highly recommend
+                                        this hospital."
+                                    </p>
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=100"
+                                            alt="Patient" class="rounded-circle me-3" width="60" height="60"
+                                            style="object-fit: cover; border: 3px solid var(--teal-light);">
+                                        <div class="text-start">
+                                            <h6 class="mb-0 fw-bold">Arjun Menon</h6>
+                                            <small class="text-teal">Sports Injury Recovery</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="testimonial-card text-center">
+                                    <div class="stars mb-3">
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-half text-warning"></i>
+                                    </div>
+                                    <p class="text-muted mb-4 fs-5">
+                                        "The spine surgery team at Kokre Hospital gave me my life back. After years of
+                                        chronic back pain, I finally found the right treatment and compassionate care I
+                                        needed."
+                                    </p>
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=100"
+                                            alt="Patient" class="rounded-circle me-3" width="60" height="60"
+                                            style="object-fit: cover; border: 3px solid var(--teal-light);">
+                                        <div class="text-start">
+                                            <h6 class="mb-0 fw-bold">Ananya Gupta</h6>
+                                            <small class="text-teal">Spine Surgery Patient</small>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Testimonial 2 -->
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="testimonial-card h-100">
-                        <div class="stars mb-3">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                        </div>
-                        <p class="text-muted mb-4">
-                            "Dr. Patel's expertise in sports medicine helped me recover from a serious ACL injury.
-                            I'm back on the field and performing better than ever!"
-                        </p>
-                        <div class="d-flex align-items-center">
-                            <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=100"
-                                alt="Patient" class="rounded-circle me-3" width="50" height="50"
-                                style="object-fit: cover;">
-                            <div>
-                                <h6 class="mb-0 fw-semibold">Arjun Menon</h6>
-                                <small class="text-muted">Sports Injury</small>
+                <!-- Controls -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+                <!-- Indicators -->
+                <div class="carousel-indicators position-relative mt-4">
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0"
+                        class="active"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section-padding bg-light">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <p class="section-subtitle">Common Queries</p>
+                <h2 class="section-title">Orthopedic FAQ</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <div class="accordion faq-accordion" id="hospitalFAQ">
+                        <!-- FAQ 1 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq1">
+                                    How long is the recovery period after Joint Replacement surgery?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#hospitalFAQ">
+                                <div class="accordion-body">
+                                    Most patients start walking with support within 24-48 hours. Complete return to
+                                    normal daily activities usually takes 4-6 weeks, with full recovery within 3
+                                    months, depending on physiotherapy compliance.
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <!-- Testimonial 3 -->
-                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="testimonial-card h-100">
-                        <div class="stars mb-3">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-half"></i>
+                        <!-- FAQ 2 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq2">
+                                    Do you accept Government Health Schemes like MJPJAY or CGHS?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#hospitalFAQ">
+                                <div class="accordion-body">
+                                    Yes, Kokare Accident Hospital is authorized for various Central and State Government
+                                    healthcare programs. Please visit our front desk with your card for eligibility
+                                    check and documentation.
+                                </div>
+                            </div>
                         </div>
-                        <p class="text-muted mb-4">
-                            "The spine surgery team at Kokre Hospital gave me my life back. After years of chronic back
-                            pain,
-                            I finally found the right treatment and care."
-                        </p>
-                        <div class="d-flex align-items-center">
-                            <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=100"
-                                alt="Patient" class="rounded-circle me-3" width="50" height="50"
-                                style="object-fit: cover;">
-                            <div>
-                                <h6 class="mb-0 fw-semibold">Ananya Gupta</h6>
-                                <small class="text-muted">Spine Surgery</small>
+                        <!-- FAQ 3 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq3">
+                                    Is surgery always necessary for every fracture?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#hospitalFAQ">
+                                <div class="accordion-body">
+                                    Not necessarily. Many stable fractures can be treated with high-quality plaster
+                                    casts or braces. Our specialists only recommend surgery if the fracture is
+                                    displaced, unstable, or involves a joint surface.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FAQ 4 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq4">
+                                    Can I get an appointment on short notice?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#hospitalFAQ">
+                                <div class="accordion-body">
+                                    For chronic conditions, we recommend booking 1-2 days in advance. However, all
+                                    <b>accident and trauma emergencies</b> are attended immediately 24/7 without the
+                                    need for an appointment.
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -2082,7 +2635,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section-padding bg-light">
+    <section id="contact" class="section-padding bg-white">
         <div class="container">
             <div class="text-center mb-5" data-aos="fade-up">
                 <p class="section-subtitle">Get in Touch</p>
@@ -2188,8 +2741,11 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4">
-                    <h5 class="fw-bold mb-3">
+                    <!-- <h5 class="fw-bold mb-3">
                         <i class="bi bi-heart-pulse-fill me-2 text-teal-light"></i>Kokre Hospital
+                    </h5> -->
+                    <h5 class="fw-bold mb-3">
+                        <i class="bi bi-heart-pulse-fill me-2 text-teal-light"></i>Kokare Accident Hospital
                     </h5>
                     <p class="text-white-50 small">
                         Leading orthopedic hospital providing comprehensive bone and joint care with
